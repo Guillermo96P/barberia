@@ -1,13 +1,27 @@
 # reservas/models.py
 
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
+
+class CustomUser(AbstractUser):
+
+    ROLE_CHOICES = (
+        ('admin', 'Administrador'),
+        ('barbero', 'Barbero'),
+        ('cliente', 'Cliente')
+    )
+
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='cliente')
+
+    def __str__(self):
+        return f'{self.username ({self.role})}'
 
 class Barbero(models.Model):
     # Modelo para barberos
     nombre = models.CharField(max_length=100)  # Nombre del barbero
     especialidad = models.CharField(max_length=100)  # Especialidad del barbero
     disponibilidad = models.JSONField()  # Disponibilidad en formato JSON
+    imagen = models.URLField(null=True, blank=True) # Añadir URL para la imagen del Barbero
 
     def __str__(self):
         return self.nombre

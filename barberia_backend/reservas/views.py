@@ -1,19 +1,42 @@
 import stripe
 from django.conf import settings
 from django.contrib.auth.models import User
-from rest_framework import generics, status
-from rest_framework.decorators import api_view
+from rest_framework import generics, status, permissions
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import Barbero, Servicio, Reserva
 from .serializers import BarberoSerializer, ServicioSerializer, ReservaSerializer
 
 # Configuración de Stripe (clave secreta)
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-# Registro de usuarios
+class IsAdminUser(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.role == 'admin'
+
+@permission_classes([IsAdminUser])
 @api_view(['POST'])
+# Agregar Barbero
+def agregar_barbero(request):
+    """
+    Solo los administradores pueden agregar un barbero.
+    """
+    nombre = request.data.get('nombre')
+    especialidad = request.data.get('especialidad')
+    disponiblidad = request.data.get('disponibilidad')
+    imagen = request.data.get('imagen')
+
+    barbero = Barbero.objects.create(
+        nombre=nombre,
+        especialidad=especialidad,
+        disponiblidad=disponiblidad,
+        imagen=imagen
+    )
+    return Response({'messagge': 'Barbero agregado correctamente'}, status=status.HTTP_201_CREATED)
+
+# Registro de Usuario
 def register(request):
     """
     Registro de un nuevo usuario.

@@ -76,6 +76,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+AUTH_USER_MODEL = 'reservas.CustomUser'
 CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'barberia_backend.urls'
 
