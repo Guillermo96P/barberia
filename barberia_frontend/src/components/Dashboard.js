@@ -110,23 +110,6 @@ const Dashboard = ({ userRole }) => {
                                                 </td>
                                                 <td className='table-column-656 h-[72px] px-4 py-2 w-60 text-[#887263] text-sm font-bold leading-normal tracking-[0.015em]'>Vista</td>
                                             </tr>
-                                            <tr className='border-t border-t-[#e5dfdc]'>
-                                                <td className='table-column-56 px-4 py-3 text-left text-[#181411] w-14 text-sm font-mediumm leading-normal'>
-                                                    <div className='bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10'
-                                                    style={{ backgroundImage: `url("https://cdn.usegalileo.ai/stability/fdec409e-71e3-41c3-92f2-d7a8ed2a543b.png")` }}
-                                                    ></div>
-                                                    <p className='text-[#181411] text-base font-medium leading-normal'>Adam</p>
-                                                </td>   
-                                                <td className='table-column-176 h-[72px] px-4 py-2 w-[400px] text-[#181411] text-sm font-normal leading-normal'>Corte de Cabello</td>
-                                                <td className='table-column-296 h-[72px] px-4 py-2 w-[400px] text-[#887263] text-sm font-normal leading-normal'>Alex</td>
-                                                <td className='table-column-416 h-[72px] px-4 py-2 w-[400px] text-[#887263] text-sm font-normal leading-normal'>11:00 AM</td>
-                                                <td className='table-column-536 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal'>
-                                                    <button className='flex items-center min-w-[84px] max-w-[400px] cursor-pointer rounded-xl h-8 px-4 bg-[#f4f2f0] text-[#181411] text-sm font-medium leading-normal w-full'>
-                                                        <span className='truncate'>Completado</span>
-                                                    </button>
-                                                </td>
-                                                <td className='table-column-656 h-[72px] px-4 py-2 w-60 text-[#887263] text-sm font-bold leading-normal tracking-[0.015em]'>Vista</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
