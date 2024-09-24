@@ -12,7 +12,7 @@ const Dashboard = ({ userRole }) => {
                         <Sidebar />
                         <div className='flex-grow p-4'>
                             {/* Aquí puedes añadir más contenido para el dashboard */}
-                            <h2>Contenido del Dashboard</h2>
+                            <p className='text-[#181411] tracking-light text-[32px] font-bold leading-tight'>Tu Tienda</p>
                         </div>
                     </div>
                 </>
